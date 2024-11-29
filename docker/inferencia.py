@@ -107,10 +107,10 @@ def post_imputado(dataset_num, dataset_cat):
 
 
 
-escalador = joblib.load('escalador.pkl')
-imputador_categorico = joblib.load('imputador_categorico.pkl')
-imp_mean = joblib.load('imputador_numerico.pkl')
-nn = joblib.load('red_neuronal.pkl')
+escalador = joblib.load('/app/escalador.pkl')
+imputador_categorico = joblib.load('/app/imputador_categorico.pkl')
+imp_mean = joblib.load('/app/imputador_numerico.pkl')
+nn = joblib.load('/app/red_neuronal.pkl')
 
 def aplicar_todo(dataset):
     dataset = modif(dataset)
@@ -124,7 +124,11 @@ def aplicar_todo(dataset):
     return dataset_tot
 
 
-input = pd.read_csv('./files/input.csv')
+input_file = '/app/files/input.csv'
+output_file = '/app/files/output.csv'
+
+
+input = pd.read_csv(input_file)
 
 input_modificado = aplicar_todo(input)
 
@@ -134,5 +138,5 @@ prediccion = (prediccion > 0.49)*1
 
 prediccion_df = pd.DataFrame(prediccion)
 
-prediccion_df.to_csv('./files/output.csv')
+prediccion_df.to_csv(output_file, index=False)
 
