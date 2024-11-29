@@ -13,7 +13,7 @@ git clone https://github.com/nacho-gonz/AA1-TUIA-Gonzalez-Noir
     
   - Dentro de la carpeta docker del repositorio clonado utilizaremos el comando: ``` docker build -t "nombre-imagen" . ```
   - En la localización que quiera correr el modelo predictor utilize el comando: ``` docker run --rm -v $(pwd)/tucarpeta:/app/files "nombre-imagen" ``` . Donde ``` tucarpeta ``` va a ser una carpeta dentro de tu localización donde vas a ingresar tus archivos a predecir y van a ser generados los archivos con las predicciones.
-  - El archivo obligatoriamente tiene que estar en formato ``` .csv ``` y su nombre tiene que ser ```input.csv```.
+  - Antes de correr el ```docker run``` va a ser necesario que ```tucarpeta``` tenga dentro el archivo ```input.csv``` que quiera predecir, en el caso contrario no funcionará la predicción.
 
 
 ## Precauciones con los datos de predicción:
